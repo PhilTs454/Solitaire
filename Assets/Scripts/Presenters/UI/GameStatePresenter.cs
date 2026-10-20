@@ -17,10 +17,22 @@ namespace Solitaire.Presenters
         private void Awake()
         {
             _canvas = GetComponent<Canvas>();
+
+            // Old "You won!" title used to appear as soon as State.Win started.
+            // The new sequence owns the result frame; keep this canvas retired.
+            if (name == "CanvasWin")
+            {
+                if (_canvas != null)
+                    _canvas.enabled = false;
+                gameObject.SetActive(false);
+            }
         }
 
         protected override void SetVisibility(bool isVisible)
         {
+            if (name == "CanvasWin")
+                isVisible = false;
+
             _canvas.enabled = isVisible;
         }
     }

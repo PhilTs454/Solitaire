@@ -1,0 +1,14 @@
+---
+description: Shader and VFX technique defaults for mobile casual games
+globs: ["**/*.shadergraph", "**/*.shader", "**/*.cs"]
+alwaysApply: false
+---
+
+- Don't default to VFX Graph for mobile-targeted effects — it needs compute shaders,
+  which are unreliable on low/mid-end Android GPUs. Do: use Shuriken particle systems for
+  mobile, unless I've said the target is PC/console.
+- Don't hand-write HLSL unless Shader Graph genuinely can't do it. Do: default to Shader
+  Graph and explain if HLSL is truly needed.
+- Do: name a real comparison point when proposing an effect (e.g. "this is the
+  anticipation glow before a slot jackpot symbol lands") so it's grounded in an actual
+  casual-mobile-game convention, not invented generically.

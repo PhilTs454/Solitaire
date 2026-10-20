@@ -13,6 +13,11 @@ namespace Solitaire.Models
         public const string SfxHint = "Hint";
         public const string SfxClick = "Click";
         public const string SfxError = "Error";
+        public const string SfxStreakPip = "StreakPip";
+        public const string SfxStreakCharge = "StreakCharge";
+        public const string SfxStreak = "Streak";
+        public const string SfxPlace = "Place";
+        public const string SfxFlip = "Flip";
 
         [Serializable]
         public class Config

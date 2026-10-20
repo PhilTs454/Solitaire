@@ -1,0 +1,12 @@
+---
+description: Reminder for actions that must happen in the Unity Editor UI, not by editing files
+alwaysApply: false
+---
+
+Some operations can't or shouldn't be done by hand-editing files: creating Sprite Atlases,
+setting up Animator state machines, assigning Inspector references that depend on a
+stable GUID, baking lighting/NavMesh, importing Asset Store packages.
+
+Don't hand-write the resulting .meta/.asset YAML from scratch for these. Do: give me exact
+click-by-click Editor steps, and write any C#/Shader Graph logic that depends on the
+result assuming it will exist after I do the manual step.

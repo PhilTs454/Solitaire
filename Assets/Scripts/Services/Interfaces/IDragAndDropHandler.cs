@@ -10,5 +10,7 @@ namespace Solitaire.Services
         void Drag(PointerEventData eventData);
         void Drop();
         void EndDrag();
+        void EndDragKeepPlace();
+        void ReturnDraggedHome();
     }
 }

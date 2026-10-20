@@ -55,6 +55,28 @@ namespace Solitaire.Services
 
         public void EndDrag()
         {
+            ReleaseDraggedCards(returnHome: true);
+        }
+
+        public void EndDragKeepPlace()
+        {
+            ReleaseDraggedCards(returnHome: false);
+        }
+
+        public void ReturnDraggedHome()
+        {
+            if (_draggedCards == null)
+                return;
+
+            for (var i = 0; i < _draggedCards.Count; i++)
+            {
+                var card = _draggedCards[i];
+                card.Position.Value = card.DragOrigin;
+            }
+        }
+
+        private void ReleaseDraggedCards(bool returnHome)
+        {
             for (var i = 0; i < _draggedCards.Count; i++)
             {
                 var card = _draggedCards[i];
@@ -63,8 +85,13 @@ namespace Solitaire.Services
                     continue;
 
                 card.IsDragged = false;
-                card.Order.Value = card.OrderToRestore;
-                card.Position.Value = card.DragOrigin;
+                if (returnHome)
+                {
+                    card.Order.Value = card.OrderToRestore;
+                    card.Position.Value = card.DragOrigin;
+                }
+                // Keep drag sorting order while the reject jelly plays so the
+                // held card stays above the pile it was dropped on.
             }
         }
 

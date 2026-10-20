@@ -13,13 +13,26 @@ namespace Solitaire.Services
         private const string GameId = "4848283";
         private const string PlacementId = "Banner_iOS";
 #else
-        private const string GameId = "unsupported_platform";
-        private const string PlacementId = "Banner";
+        // Editor / Standalone: Unity Ads is not supported — do not initialize.
+        private const string GameId = "";
+        private const string PlacementId = "";
 #endif
+
+        private static bool IsMobileAdsPlatform
+        {
+            get
+            {
+#if UNITY_ANDROID || UNITY_IOS
+                return true;
+#else
+                return false;
+#endif
+            }
+        }
 
         public void Initialize()
         {
-            if (!Advertisement.isSupported)
+            if (!IsMobileAdsPlatform || !Advertisement.isSupported)
                 return;
 
             Advertisement.Initialize(GameId, true, this);
@@ -32,12 +45,12 @@ namespace Solitaire.Services
 
         public void OnInitializationFailed(UnityAdsInitializationError error, string message)
         {
-            Debug.LogError($"{error}: {message}");
+            Debug.LogWarning($"[AdService] Init failed ({error}): {message}");
         }
 
         public void ShowBanner()
         {
-            if (!Advertisement.isSupported)
+            if (!IsMobileAdsPlatform || !Advertisement.isSupported)
                 return;
 
             Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
@@ -46,7 +59,7 @@ namespace Solitaire.Services
 
         public void HideBanner()
         {
-            if (!Advertisement.isSupported)
+            if (!IsMobileAdsPlatform || !Advertisement.isSupported)
                 return;
 
             Advertisement.Banner.Hide();

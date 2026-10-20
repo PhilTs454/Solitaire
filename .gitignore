@@ -14,6 +14,9 @@
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/
 
+# Perf baseline CSV dumps from Tools/Solitaire/Perf Baseline Capture
+/[Pp]erf[Cc]aptures/
+
 # Recordings can get excessive in size
 /[Rr]ecordings/
 

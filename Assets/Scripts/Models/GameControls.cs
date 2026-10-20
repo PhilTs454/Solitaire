@@ -1,3 +1,4 @@
+using System;
 using Cysharp.Threading.Tasks;
 using Solitaire.Helpers;
 using Solitaire.Services;
@@ -7,6 +8,8 @@ namespace Solitaire.Models
 {
     public class GameControls : DisposableEntity
     {
+        private readonly Subject<Unit> _undoRattle = new();
+
         public GameControls(
             Game game,
             GameState gameState,
@@ -14,13 +17,15 @@ namespace Solitaire.Models
             IMovesService movesService
         )
         {
+            _undoRattle.AddTo(this);
+
             var isPlayingSource = gameState.State.Select(s => s == Game.State.Playing);
 
             HomeCommand = new ReactiveCommand(
                 gameState.State.Select(s => s == Game.State.Playing || s == Game.State.Win)
             );
-            
-            HomeCommand.Subscribe(_ => gameState.State.Value = Game.State.Home).AddTo(this);
+
+            HomeCommand.Subscribe(_ => game.RequestHome()).AddTo(this);
 
             UndoCommand = new ReactiveCommand(
                 isPlayingSource.CombineLatest(
@@ -28,7 +33,7 @@ namespace Solitaire.Models
                     (isPlaying, canUndo) => isPlaying && canUndo
                 )
             );
-            
+
             UndoCommand
                 .Subscribe(_ =>
                 {
@@ -38,7 +43,7 @@ namespace Solitaire.Models
                 .AddTo(this);
 
             HintCommand = new AsyncReactiveCommand(isPlayingSource);
-            
+
             HintCommand
                 .Subscribe(_ => game.TryShowHintAsync().ToObservable().AsUnitObservable())
                 .AddTo(this);
@@ -47,5 +52,11 @@ namespace Solitaire.Models
         public ReactiveCommand HomeCommand { get; }
         public ReactiveCommand UndoCommand { get; }
         public AsyncReactiveCommand HintCommand { get; }
+        public IObservable<Unit> UndoRattle => _undoRattle;
+
+        public void RequestUndoRattle()
+        {
+            _undoRattle.OnNext(Unit.Default);
+        }
     }
 }

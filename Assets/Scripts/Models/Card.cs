@@ -114,7 +114,15 @@ namespace Solitaire.Models
             public float AnimationDuration = 0.5f;
             public Color[] Colors;
             public Sprite[] SuitSprites;
+
+            [Tooltip("Rank sprites for black suits (Spade, Club). Order: A, 2…10, J, Q, K.")]
             public Sprite[] TypeSprites;
+
+            [Tooltip("Rank sprites for red suits (Heart, Diamond). Same order as TypeSprites. Leave empty to tint TypeSprites with Colors.")]
+            public Sprite[] TypeSpritesRed;
+
+            [Tooltip("Optional per-suit Type/Suit1/Suit2/Ace center transforms.")]
+            public CardLayout Layout;
         }
     }
 }

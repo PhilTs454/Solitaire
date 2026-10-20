@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 443f3c820bf4feb47b9499c6723f5903, type: 3}
+  m_Name: CardLayout
+  m_EditorClassIdentifier: 
+  Front:
+    LocalPosition: {x: 0, y: 0, z: 0}
+    LocalScale: {x: 0, y: 0, z: 0}
+    LocalEulerAngles: {x: 0, y: 0, z: 0}
+  Back:
+    LocalPosition: {x: 0, y: 0, z: 0}
+    LocalScale: {x: 0, y: 0, z: 0}
+    LocalEulerAngles: {x: 0, y: 0, z: 0}
+  Type:
+    LocalPosition: {x: -0.5, y: 1.05, z: 0}
+    LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+    LocalEulerAngles: {x: -0, y: 0, z: 0}
+  Suit1:
+    LocalPosition: {x: 0.6, y: 1.082, z: 0}
+    LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+    LocalEulerAngles: {x: -0, y: 0, z: 0}
+  Suit2:
+    LocalPosition: {x: 0.049, y: -0.58, z: 0}
+    LocalScale: {x: 0.72, y: 0.72, z: 0.90000004}
+    LocalEulerAngles: {x: -0, y: 0, z: 0}
+  Spade:
+    Type:
+      LocalPosition: {x: 0, y: 0, z: 0}
+      LocalScale: {x: 0, y: 0, z: 0}
+      LocalEulerAngles: {x: 0, y: 0, z: 0}
+    Suit1:
+      LocalPosition: {x: 0.6, y: 1.082, z: 0}
+      LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+      LocalEulerAngles: {x: -0, y: 0, z: 0}
+    Suit2:
+      LocalPosition: {x: 0, y: 0, z: 0}
+      LocalScale: {x: 0, y: 0, z: 0}
+      LocalEulerAngles: {x: 0, y: 0, z: 0}
+    UseAceCenter: 1
+    AceCenter:
+      LocalPosition: {x: 0, y: 0, z: 0}
+      LocalScale: {x: 0, y: 0, z: 0}
+      LocalEulerAngles: {x: 0, y: 0, z: 0}
+  Club:
+    Type:
+      LocalPosition: {x: 0, y: 0, z: 0}
+      LocalScale: {x: 0, y: 0, z: 0}
+      LocalEulerAngles: {x: 0, y: 0, z: 0}
+    Suit1:
+      LocalPosition: {x: 0.6, y: 1.082, z: 0}
+      LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+      LocalEulerAngles: {x: -0, y: 0, z: 0}
+    Suit2:
+      LocalPosition: {x: 0, y: 0, z: 0}
+      LocalScale: {x: 0, y: 0, z: 0}
+      LocalEulerAngles: {x: 0, y: 0, z: 0}
+    UseAceCenter: 1
+    AceCenter:
+      LocalPosition: {x: 0, y: 0, z: 0}
+      LocalScale: {x: 0, y: 0, z: 0}
+      LocalEulerAngles: {x: 0, y: 0, z: 0}
+  Heart:
+    Type:
+      LocalPosition: {x: -0.5, y: 1.05, z: 0}
+      LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+      LocalEulerAngles: {x: -0, y: 0, z: 0}
+    Suit1:
+      LocalPosition: {x: 0.6, y: 1.082, z: 0}
+      LocalScale: {x: 0.22, y: 0.22, z: 0.62857145}
+      LocalEulerAngles: {x: -0, y: 0, z: 0}
+    Suit2:
+      LocalPosition: {x: 0.049, y: -0.58, z: 0}
+      LocalScale: {x: 0.6, y: 0.6, z: 0.90000004}
+      LocalEulerAngles: {x: -0, y: 0, z: 0}
+    UseAceCenter: 1
+    AceCenter:
+      LocalPosition: {x: 0, y: 0, z: 0}
+      LocalScale: {x: 0, y: 0, z: 0}
+      LocalEulerAngles: {x: 0, y: 0, z: 0}
+  Diamond:
+    Type:
+      LocalPosition: {x: 0, y: 0, z: 0}
+      LocalScale: {x: 0, y: 0, z: 0}
+      LocalEulerAngles: {x: 0, y: 0, z: 0}
+    Suit1:
+      LocalPosition: {x: 0.6, y: 1.082, z: 0}
+      LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+      LocalEulerAngles: {x: -0, y: 0, z: 0}
+    Suit2:
+      LocalPosition: {x: 0, y: 0, z: 0}
+      LocalScale: {x: 0, y: 0, z: 0}
+      LocalEulerAngles: {x: 0, y: 0, z: 0}
+    UseAceCenter: 1
+    AceCenter:
+      LocalPosition: {x: 0, y: 0, z: 0}
+      LocalScale: {x: 0, y: 0, z: 0}
+      LocalEulerAngles: {x: 0, y: 0, z: 0}
+  ApplyColliderSize: 0
+  ColliderSize: {x: 1.09, y: 1.64}
+  ColliderOffset: {x: 0, y: 0}

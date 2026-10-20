@@ -19,34 +19,50 @@ MonoBehaviour:
     PointsTurnOverTableauCard: 5
     PointsFoundationToTableau: -15
     PointsRecycleWaste: -100
+    PointsStreakBonus: 50
+    PointsStreakBonusStep: 10
   _card:
     AnimationDuration: 0.25
     Colors:
     - {r: 0, g: 0, b: 0, a: 1}
     - {r: 0, g: 0, b: 0, a: 1}
-    - {r: 0.7725491, g: 0.18823531, b: 0.21960786, a: 1}
-    - {r: 0.7725491, g: 0.18823531, b: 0.21960786, a: 1}
+    - {r: 0.91, g: 0.145, b: 0.2, a: 1}
+    - {r: 0.91, g: 0.145, b: 0.2, a: 1}
     SuitSprites:
-    - {fileID: 21300000, guid: 2c6d6cad90711eb408240c39100ef4cf, type: 3}
-    - {fileID: 21300000, guid: fff36812c0ddf3846bd365ec8aa8b832, type: 3}
-    - {fileID: 21300000, guid: 4dbde7c7f6bcf0b42824e9b779fd1dfe, type: 3}
-    - {fileID: 21300000, guid: 01eefc40193f959478d13cd25b298a67, type: 3}
+    - {fileID: 21300000, guid: 045bd4912cf91db459d1524e9fff7e48, type: 3}
+    - {fileID: 21300000, guid: aac5a41423e1d004f919c2d5470e8dc7, type: 3}
+    - {fileID: 21300000, guid: ab19193eb1c70814392b4f452de17363, type: 3}
+    - {fileID: 21300000, guid: 79d627782d911c24ea09dbfc7d313603, type: 3}
     TypeSprites:
-    - {fileID: 21300000, guid: bfa3036e16836e24e90c66d00c54438b, type: 3}
-    - {fileID: 21300000, guid: cca028ad0bca34d4d8924e143aeac0f3, type: 3}
-    - {fileID: 21300000, guid: 493f90928a850be449d8ec7a3b7fcd22, type: 3}
-    - {fileID: 21300000, guid: 6631d87466713a54c92581b94119ec3e, type: 3}
-    - {fileID: 21300000, guid: 4fc1b756c67ee0b48bd5ff3523786f6e, type: 3}
-    - {fileID: 21300000, guid: a028afc93fc3c9b4a9f0ceef1229458e, type: 3}
-    - {fileID: 21300000, guid: 4a8f59cb4c219ca409e2f56f3bf286be, type: 3}
-    - {fileID: 21300000, guid: 9e1a9309e87facd4999623aae9eba20c, type: 3}
-    - {fileID: 21300000, guid: b16c07dc93071cb498551e4af056bd84, type: 3}
-    - {fileID: 21300000, guid: c30d30bbd3b4efe49b5d38eb441e8c88, type: 3}
-    - {fileID: 21300000, guid: be231f46753cb894894e5ad14a81ce10, type: 3}
-    - {fileID: 21300000, guid: 1303b1693f3257d45b7ce407bc1fdec7, type: 3}
-    - {fileID: 21300000, guid: 38de620951d510c4dbfd223e1e11d2d7, type: 3}
+    - {fileID: 21300000, guid: 0a1a11922c04017429676f79da3c5a7d, type: 3}
+    - {fileID: 21300000, guid: 00a4dee8d5723ea498409d7c80b1dca9, type: 3}
+    - {fileID: 21300000, guid: 7c48bcb3d8da1be4faddce27b4703535, type: 3}
+    - {fileID: 21300000, guid: f7254e137495a424ca85fe4497648a17, type: 3}
+    - {fileID: 21300000, guid: 3767a04ab4cc4b04ca258211b35b8972, type: 3}
+    - {fileID: 21300000, guid: 341e8ddf0e02e084c891a5741bdfe3ed, type: 3}
+    - {fileID: 21300000, guid: a92e000d6f91d0846b64e2e7a06654cd, type: 3}
+    - {fileID: 21300000, guid: 33e1f0e0630ca8341b9bb8ebb4a68ff0, type: 3}
+    - {fileID: 21300000, guid: c57d8ce31e882d243841c0a969bb6d0b, type: 3}
+    - {fileID: 21300000, guid: 7596887ed6ad2da488bab213c5458721, type: 3}
+    - {fileID: 21300000, guid: 260cc1bfaf756c643b605d1fc812d48e, type: 3}
+    - {fileID: 21300000, guid: b565ca3329a0a754ebafc80baaa1f448, type: 3}
+    - {fileID: 21300000, guid: c9c8cd482ade82e4b83e971e0918306f, type: 3}
+    TypeSpritesRed:
+    - {fileID: 21300000, guid: a35f28801cee0ec4fb3f806e1a5bb5e6, type: 3}
+    - {fileID: 21300000, guid: 4407ad21f04025e489784c94128aea46, type: 3}
+    - {fileID: 21300000, guid: 00d10fd56b36a714f90c6985d01a2a3f, type: 3}
+    - {fileID: 21300000, guid: acd28467360082449a6ef321464c08f4, type: 3}
+    - {fileID: 21300000, guid: 6736b893713b93a44b3a32b2caac8a8b, type: 3}
+    - {fileID: 21300000, guid: 33e33c6fae79fce43b293bf9fc70516f, type: 3}
+    - {fileID: 21300000, guid: 6d75aee1bac2d1e45a7c7e468e709eff, type: 3}
+    - {fileID: 21300000, guid: ac064c68f4fba2440a408f0c87c6f97f, type: 3}
+    - {fileID: 21300000, guid: 2f624615759fe5c469a6e0018eddb1ac, type: 3}
+    - {fileID: 21300000, guid: 59a10eef89766d347b3a9a178c0881ca, type: 3}
+    - {fileID: 21300000, guid: 1e557c2d4c5633b4791b8ebffb50a02d, type: 3}
+    - {fileID: 21300000, guid: 6c33903af5196e54fa81d9cafbf0305e, type: 3}
+    - {fileID: 21300000, guid: 46d08f0a88f357346aeb3c79e98cbc5c, type: 3}
+    Layout: {fileID: 11400000, guid: 04ce35f7d3c3f14489c95a2edf283b66, type: 2}
   _audio:
-    MusicVolume: 0.2
     AudioClips:
     - {fileID: 8300000, guid: 11335588942bbd5449bd5e612908f09c, type: 3}
     - {fileID: 8300000, guid: d372c3c1265b3428b93b791dd44035a1, type: 3}
@@ -55,3 +71,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 04fcd84edabbc436a95c0c81bc66b2b9, type: 3}
     - {fileID: 8300000, guid: 4f04d64ef7fdf435ba5cc38007e010bc, type: 3}
     - {fileID: 8300000, guid: b320b8fdf55d9ac4caf2f388b02cf1fc, type: 3}
+    - {fileID: 8300000, guid: ec0f3243cb4b1a9499c5bfe43d4b50ac, type: 3}
+    - {fileID: 8300000, guid: 329c0709b054ea642b13821ada7bf762, type: 3}
+    - {fileID: 8300000, guid: 37643a98b90b53c4badbc92b645dacb2, type: 3}
+    - {fileID: 8300000, guid: adfd03305f4fd624ba62c666ad55a9b6, type: 3}
+    - {fileID: 8300000, guid: 33a980c3cb065d149bd10aa64900c3f1, type: 3}

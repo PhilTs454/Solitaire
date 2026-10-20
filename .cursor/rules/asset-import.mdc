@@ -1,0 +1,15 @@
+---
+description: Asset import conventions for sprites, textures, and FBX models
+globs: ["**/*.png", "**/*.fbx", "**/*.jpg"]
+alwaysApply: false
+---
+
+- Don't assume Unity's automatic Sprite slicing ("Full Rect"/auto) is correct. Do: use
+  manual Sprite Slicing and have me review the slice rects.
+- Don't mark an FBX import "done" without checking: object origin = geometry origin,
+  transforms applied, smoothing matches intent, poly count within mobile budget, textures
+  match the render pipeline.
+- If normals look broken, shading is inverted, or edges look hard: check import normal
+  calculation and smoothness settings before suggesting a re-export from Blender/Maya.
+- Don't leave texture compression on generic "Automatic." Do: set per-platform overrides
+  (Android/iOS) and turn mipmaps off for 2D sprites/UI.

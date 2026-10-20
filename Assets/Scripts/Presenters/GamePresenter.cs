@@ -51,6 +51,17 @@ namespace Solitaire.Presenters
 
         private void Start()
         {
+            ResolvePileRefs();
+
+            if (!CanInitGame())
+            {
+                Debug.LogError(
+                    "[GamePresenter] Missing pile references — cannot Init. "
+                        + "Check Stock/Waste/Foundation/Tableau prefab instances in the Game scene."
+                );
+                return;
+            }
+
             // Update camera on orientation change
             _orientation.State.Subscribe(AdjustCamera).AddTo(this);
 
@@ -73,6 +84,63 @@ namespace Solitaire.Presenters
             // Detect win condition
             if (_gameState.State.Value == Game.State.Playing)
                 _game.DetectWinCondition();
+        }
+
+        private bool CanInitGame()
+        {
+            return _game != null
+                && _pileStock != null
+                && _pileWaste != null
+                && _pileFoundations != null
+                && _pileFoundations.Length == 4
+                && _pileFoundations.All(p => p != null)
+                && _pileTableaus != null
+                && _pileTableaus.Length == 7
+                && _pileTableaus.All(p => p != null);
+        }
+
+        /// <summary>
+        /// After a wiped Pile.prefab, Unity can leave GamePresenter refs as Missing.
+        /// Re-bind from live scene instances when needed.
+        /// </summary>
+        private void ResolvePileRefs()
+        {
+            if (CanInitGame())
+                return;
+
+            var piles = FindObjectsOfType<PilePresenter>(true);
+            if (piles == null || piles.Length == 0)
+                return;
+
+            if (_pileStock == null)
+                _pileStock = piles.FirstOrDefault(p => p.PileType == Pile.PileType.Stock);
+
+            if (_pileWaste == null)
+                _pileWaste = piles.FirstOrDefault(p => p.PileType == Pile.PileType.Waste);
+
+            if (
+                _pileFoundations == null
+                || _pileFoundations.Length != 4
+                || _pileFoundations.Any(p => p == null)
+            )
+            {
+                _pileFoundations = piles
+                    .Where(p => p.PileType == Pile.PileType.Foundation)
+                    .OrderBy(p => p.name)
+                    .ToArray();
+            }
+
+            if (
+                _pileTableaus == null
+                || _pileTableaus.Length != 7
+                || _pileTableaus.Any(p => p == null)
+            )
+            {
+                _pileTableaus = piles
+                    .Where(p => p.PileType == Pile.PileType.Tableau)
+                    .OrderBy(p => p.name)
+                    .ToArray();
+            }
         }
 
         private void AdjustCamera(Orientation orientation)
@@ -99,6 +167,32 @@ namespace Solitaire.Presenters
             // Enable card interactions only while playing
             _cardRaycaster.enabled = state.Current == Game.State.Playing;
         }
+
+#if UNITY_EDITOR
+        [ContextMenu("Victory/One Legal Move")]
+        private void ContextOneLegalMove()
+        {
+            _game.SetupOneMoveFromVictory();
+        }
+
+        [ContextMenu("Victory/Force Victory")]
+        private void ContextForceVictory()
+        {
+            _game.ForceVictory();
+        }
+
+        [ContextMenu("Victory/Preview Stage")]
+        private void ContextPreviewStage()
+        {
+            _game.PreviewVictoryStage();
+        }
+
+        [ContextMenu("Victory/Go Home")]
+        private void ContextGoHome()
+        {
+            _game.RequestHome();
+        }
+#endif
 
         private void SetCameraLayers(bool cullGame)
         {
